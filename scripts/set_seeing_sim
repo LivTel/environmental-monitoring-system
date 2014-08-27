@@ -1,0 +1,16 @@
+#!/bin/csh
+
+# Usage set_seeing <seeing-arcsec>
+
+source /opt/ngat/etc/cshrc
+source /occ/bin/class_setup
+
+
+if (${#argv} < 1) then
+    echo "Usage: set_seeing <seeing-arcsec>"
+    exit 1
+endif
+
+
+
+$JAVA  ngat.ems.test.TestUpdateSkyModel --host ltsim1 --seeing $1 --alt $2 --std 

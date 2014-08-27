@@ -1,0 +1,26 @@
+#!/bin/csh
+
+switch ($1)
+   
+    case 3:
+	set j = jre1.3.1_09
+	breaksw
+    case 4.2:
+	set j = j2re1.4.2_02
+	breaksw
+    default:
+	 set j = jdk1.3.1_08
+	 breaksw
+endsw
+
+#setenv JAVA_HOME /usr/java/$JAVA_VERSION
+
+# Add the standard library
+echo $LD_LIBRARY_PATH | grep $LIB_HOME > /dev/null
+if ($status != 0) then
+    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${LIB_HOME}
+endif
+
+# CLASSPATH
+setenv CLASSPATH .
+

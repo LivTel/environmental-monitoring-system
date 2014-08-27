@@ -1,0 +1,10 @@
+#!/bin/csh
+
+# Usage set_photom 
+# Usage set_non_photom
+
+source /opt/ngat/etc/cshrc
+source /occ/bin/class_setup
+source /occ/bin/x_setup
+
+$JAVA  ngat.ems.test.TestUpdatePhotom --host localhost
