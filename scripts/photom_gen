@@ -1,0 +1,17 @@
+#!/bin/csh
+
+source /opt/ngat/etc/cshrc
+source /occ/bin/class_setup
+
+set data = "/occ/data/photom.dat"
+set ee = `cat $data | awk '{print $2}'`
+
+#echo "Ext: $ee "
+
+if ($ee == "PHOTOM") then   
+    set EXT = "--photometric"
+else
+    set EXT = "--spectroscopic"
+endif
+
+$JAVA ngat.ems.test.TestUpdatePhotom --host localhost $EXT
